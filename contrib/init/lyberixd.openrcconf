@@ -1,0 +1,26 @@
+# /etc/conf.d/lyberixd: config file for /etc/init.d/lyberixd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/lyberix/lyberix.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/lyberixd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/lyberixd.pid"
+
+# Where to write lyberixd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/lyberixd"
+
+# User and group to own lyberixd process
+#BITCOIND_USER="lyberix"
+#BITCOIND_GROUP="lyberix"
+
+# Path to lyberixd executable
+#BITCOIND_BIN="/usr/bin/lyberixd"
+
+# Nice value to run lyberixd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

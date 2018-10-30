@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Etter and DASH Core Developers, 2017-@COPYRIGHT_YEAR@ The LYBERIX Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers, 2014-@COPYRIGHT_YEAR@ The Etter and DASH Core Developers, 2017-@COPYRIGHT_YEAR@ The LYBERIXV3 Core developers</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>LYBERIX-Qt</string>
+  <string>LYBERIXV3-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>io.lyberix.LYBERIX-Qt</string>
+  <string>io.lyberixv3.LYBERIXV3-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,10 +40,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>io.lyberix.LYBERIXPayment</string>
+      <string>io.lyberixv3.LYBERIXV3Payment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>lyberix</string>
+        <string>lyberixv3</string>
       </array>
     </dict>
   </array>
@@ -52,9 +52,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>io.lyberix.paymentrequest</string>
+      <string>io.lyberixv3.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>LYBERIX payment request</string>
+      <string>LYBERIXV3 payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -62,10 +62,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-lyberix-payment-request</string>
+        <string>application/x-lyberixv3-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>lyberixpaymentrequest</string>
+          <string>lyberixv3paymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -78,7 +78,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>io.lyberix.paymentrequest</string>
+        <string>io.lyberixv3.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

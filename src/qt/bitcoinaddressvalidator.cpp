@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The LYBERIX developers
+// Copyright (c) 2018 The LYBERIXV3 developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,8 +14,8 @@
 
   This is:
   - All numbers except for '0'
-  - All upper-case llyberixs except for 'I' and 'O'
-  - All lower-case llyberixs except for 'l'
+  - All upper-case llyberixv3s except for 'I' and 'O'
+  - All lower-case llyberixv3s except for 'l'
 */
 
 BitcoinAddressEntryValidator::BitcoinAddressEntryValidator(QObject* parent) : QValidator(parent)
@@ -83,7 +83,7 @@ BitcoinAddressCheckValidator::BitcoinAddressCheckValidator(QObject* parent) : QV
 QValidator::State BitcoinAddressCheckValidator::validate(QString& input, int& pos) const
 {
     Q_UNUSED(pos);
-    // Validate the passed LYBERIX address
+    // Validate the passed LYBERIXV3 address
     CBitcoinAddress addr(input.toStdString());
     if (addr.IsValid())
         return QValidator::Acceptable;

@@ -1,0 +1,26 @@
+# /etc/conf.d/lyberixv3d: config file for /etc/init.d/lyberixv3d
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/lyberixv3/lyberixv3.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/lyberixv3d"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/lyberixv3d.pid"
+
+# Where to write lyberixv3d data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/lyberixv3d"
+
+# User and group to own lyberixv3d process
+#BITCOIND_USER="lyberixv3"
+#BITCOIND_GROUP="lyberixv3"
+
+# Path to lyberixv3d executable
+#BITCOIND_BIN="/usr/bin/lyberixv3d"
+
+# Nice value to run lyberixv3d under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

@@ -153,7 +153,7 @@ BOOST_AUTO_TEST_CASE(coin_selection_tests)
 
         add_coin( 5*CENT); // now we have 5+6+7+8+20+30 = 75 cents total
 
-        // now if we try making 16 cents again, the smaller coins can make 5+6+7 = 18 cents, blyberix than the next biggest coin, 20
+        // now if we try making 16 cents again, the smaller coins can make 5+6+7 = 18 cents, blyberixv3 than the next biggest coin, 20
         BOOST_CHECK( wallet.SelectCoinsMinConf(16 * CENT, 1, 1, vCoins, setCoinsRet, nValueRet));
         BOOST_CHECK_EQUAL(nValueRet, 18 * CENT); // we should get 18 in 3 coins
         BOOST_CHECK_EQUAL(setCoinsRet.size(), 3U);

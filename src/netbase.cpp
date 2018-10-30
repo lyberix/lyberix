@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifdef HAVE_CONFIG_H
-#include "config/lyberix-config.h"
+#include "config/lyberixv3-config.h"
 #endif
 
 #include "netbase.h"

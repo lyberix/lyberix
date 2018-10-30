@@ -395,8 +395,8 @@ of <code>leveldb</code>.  The types of entries we might wish to store are:
    filename -&gt; permission-bits, length, list of file_block_ids
    file_block_id -&gt; data
 </pre>
-We might want to prefix <code>filename</code> keys with one llyberix (say '/') and the
-<code>file_block_id</code> keys with a different llyberix (say '0') so that scans
+We might want to prefix <code>filename</code> keys with one llyberixv3 (say '/') and the
+<code>file_block_id</code> keys with a different llyberixv3 (say '0') so that scans
 over just the metadata do not force us to fetch and cache bulky file
 contents.
 <p>
@@ -510,7 +510,7 @@ bytes of file system space used by the key range <code>[a..c)</code> and
 All file operations (and other operating system calls) issued by the
 <code>leveldb</code> implementation are routed through a <code>leveldb::Env</code> object.
 Sophisticated clients may wish to provide their own <code>Env</code>
-implementation to get blyberix control.  For example, an application may
+implementation to get blyberixv3 control.  For example, an application may
 introduce artificial delays in the file IO paths to limit the impact
 of <code>leveldb</code> on other activities in the system.
 <p>

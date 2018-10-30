@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The LYBERIX developers
+// Copyright (c) 2018 The LYBERIXV3 developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -31,7 +31,7 @@ using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// LYBERIXMiner
+// LYBERIXV3Miner
 //
 
 //
@@ -421,7 +421,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("LYBERIXMiner : generated block is stale");
+            return error("LYBERIXV3Miner : generated block is stale");
     }
 
     // Remove key from key pool
@@ -436,7 +436,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     // Process this block the same as if we had received it from another node
     CValidationState state;
     if (!ProcessNewBlock(state, NULL, pblock))
-        return error("LYBERIXMiner : ProcessNewBlock, block not accepted");
+        return error("LYBERIXV3Miner : ProcessNewBlock, block not accepted");
 
     return true;
 }
@@ -447,9 +447,9 @@ bool fGenerateBitcoins = false;
 
 void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
-    LogPrintf("LYBERIXMiner started\n");
+    LogPrintf("LYBERIXV3Miner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("lyberix-miner");
+    RenameThread("lyberixv3-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -515,7 +515,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             LogPrintf("CPUMiner : proof-of-stake block found %s \n", pblock->GetHash().ToString().c_str());
 
             if (!pblock->SignBlock(*pwallet)) {
-                LogPrintf("LYBERIXMiner(): Signing new block failed \n");
+                LogPrintf("LYBERIXV3Miner(): Signing new block failed \n");
                 continue;
             }
 
@@ -527,7 +527,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             continue;
         }
 
-        LogPrintf("Running LYBERIXMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+        LogPrintf("Running LYBERIXV3Miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
             ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -544,7 +544,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 if (hash <= hashTarget) {
                     // Found a solution
                     SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                    LogPrintf("LYBERIXMiner:\n");
+                    LogPrintf("LYBERIXV3Miner:\n");
                     LogPrintf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex(), hashTarget.GetHex());
                     ProcessBlockFound(pblock, *pwallet, reservekey);
                     SetThreadPriority(THREAD_PRIORITY_LOWEST);
@@ -616,12 +616,12 @@ void static ThreadBitcoinMiner(void* parg)
         BitcoinMiner(pwallet, false);
         boost::this_thread::interruption_point();
     } catch (std::exception& e) {
-        LogPrintf("ThreadLYBERIXMiner() exception");
+        LogPrintf("ThreadLYBERIXV3Miner() exception");
     } catch (...) {
-        LogPrintf("ThreadLYBERIXMiner() exception");
+        LogPrintf("ThreadLYBERIXV3Miner() exception");
     }
 
-    LogPrintf("ThreadLYBERIXMiner exiting\n");
+    LogPrintf("ThreadLYBERIXV3Miner exiting\n");
 }
 
 void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads)

@@ -95,7 +95,7 @@ public:
 };
 
 /**
- * LYBERIX RPC command dispatcher.
+ * LYBERIXV3 RPC command dispatcher.
  */
 class CRPCTable
 {

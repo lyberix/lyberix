@@ -781,12 +781,12 @@ QDialog#HelpMessageDialog QScrollBar:vertical, QDialog#HelpMessageDialog QScroll
 border:0;
 }
 
-/* About LYBERIX Dialog */
-QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About LYBERIX Contents */
+/* About LYBERIXV3 Dialog */
+QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About LYBERIXV3 Contents */
 margin-left:10px;
 }
 
-QDialog#AboutDialog QLabel#label_2 { /* Margin for About LYBERIX text */
+QDialog#AboutDialog QLabel#label_2 { /* Margin for About LYBERIXV3 text */
 margin-right:10px;
 }
 
@@ -948,7 +948,7 @@ min-width:410px;
 margin-right:20px;
 margin-left:0;
 margin-top:0;
-background-image: url(':/images/lyberix_logo_horizontal');
+background-image: url(':/images/lyberixv3_logo_horizontal');
 background-repeat:none;
 }
 

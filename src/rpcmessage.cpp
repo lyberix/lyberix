@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The LYBERIX developers
+// Copyright (c) 2018 The LYBERIXV3 developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -257,7 +257,7 @@ CBitcoinAddress GetSendingAddress() {
     CWalletDB walletdb(pwalletMain->strWalletFile);
 
     CAccount account;
-	string strAccount("_lyberixsend");
+	string strAccount("_lyberixv3send");
     walletdb.ReadAccount(strAccount, account);
 
     // Generate a new key
@@ -287,7 +287,7 @@ void SendMessage(const string& strMessage, CWalletTx& wtxNew, bool fUseIX = fals
         throw JSONRPCError(RPC_WALLET_ERROR, strError);
     }
 
-    // Parse LYBERIX address
+    // Parse LYBERIXV3 address
     CBitcoinAddress address = GetSendingAddress();
     CScript scriptPubKey = GetScriptForDestination(address.Get());
 	
@@ -306,7 +306,7 @@ void SendMessage(const string& strMessage, CWalletTx& wtxNew, bool fUseIX = fals
 	CWalletTx wtxMsg;
 	wtxMsg.vin.push_back(CTxIn(wtxNew.GetHash(), 0));
     
-    // Parse LYBERIX address
+    // Parse LYBERIXV3 address
 	std::vector<unsigned char> msgVec;
 	for(int i=0; i<strMessage.length(); i++) {
 		msgVec.push_back(strMessage.c_str()[i]);
@@ -354,7 +354,7 @@ Value sendmessagefrom(const Array& params, bool fHelp)
     if (fHelp || params.size() != 2)
         throw runtime_error(
             "sendmessagefrom \"fromaccount\" \"message\"\n"
-            "\nSent an message using funds from an account to a lyberix address.\n" +
+            "\nSent an message using funds from an account to a lyberixv3 address.\n" +
             HelpRequiringPassphrase() + "\n"
                                         "\nArguments:\n"
                                         "1. \"fromaccount\"       (string, required) The name of the account to send funds from. May be the default account using \"\".\n"
@@ -362,10 +362,10 @@ Value sendmessagefrom(const Array& params, bool fHelp)
                                         "\nResult:\n"
                                         "\"transactionid\"        (string) The transaction id.\n"
                                         "\nExamples:\n"
-                                        "\nSend \"hello lyberix\" from the default account to the address.\n" +
-            HelpExampleCli("sendmessagefrom", "\"\" \"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg\" \"hello lyberix\"") +
-            "\nSend \"hello lyberix\" from the tabby account to the given address.\n" + HelpExampleCli("sendmessagefrom", "\"tabby\" \"hello lyberix\"") +
-            "\nAs a json rpc call\n" + HelpExampleRpc("sendmessagefrom", "\"tabby\", \"hello lyberix\""));
+                                        "\nSend \"hello lyberixv3\" from the default account to the address.\n" +
+            HelpExampleCli("sendmessagefrom", "\"\" \"XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg\" \"hello lyberixv3\"") +
+            "\nSend \"hello lyberixv3\" from the tabby account to the given address.\n" + HelpExampleCli("sendmessagefrom", "\"tabby\" \"hello lyberixv3\"") +
+            "\nAs a json rpc call\n" + HelpExampleRpc("sendmessagefrom", "\"tabby\", \"hello lyberixv3\""));
 
 	string strAccount = params[0].get_str();
     if (strAccount == "*")
@@ -382,7 +382,7 @@ Value sendmessagefrom(const Array& params, bool fHelp)
 	CWalletDB walletdb(pwalletMain->strWalletFile);
     CAmount nBalance = GetAccountBalanceFromWallet(walletdb, strAccount, nMinDepth, ISMINE_SPENDABLE);
     if (MESSAGE_FEE > nBalance)
-        throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Account has insufficient funds (0.001 LYBERIX required)");
+        throw JSONRPCError(RPC_WALLET_INSUFFICIENT_FUNDS, "Account has insufficient funds (0.001 LYBERIXV3 required)");
 
 	SendMessage(strMessage, wtx);
 
@@ -401,7 +401,7 @@ Value sendmessage(const Array& params, bool fHelp)
             "\nResult:\n"
             "\"transactionid\"  (string) The transaction id.\n"
             "\nExamples:\n" +
-            HelpExampleCli("sendmessage", "\"hello lyberix\""));
+            HelpExampleCli("sendmessage", "\"hello lyberixv3\""));
 
     // Message
     string strMessage = params[0].get_str();

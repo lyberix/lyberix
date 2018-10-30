@@ -1,6 +1,6 @@
 // Copyright (c) 2014-2015 The Etter Developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The LYBERIX developers
+// Copyright (c) 2018 The LYBERIXV3 developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -34,9 +34,9 @@ Value mnbudget(const Array& params, bool fHelp)
             "\nAvailable commands:\n"
             "  prepare            - Prepare proposal for network by signing and creating tx\n"
             "  submit             - Submit proposal for network\n"
-            "  vote-many          - Vote on a LYBERIX initiative\n"
-            "  vote-alias         - Vote on a LYBERIX initiative\n"
-            "  vote               - Vote on a LYBERIX initiative/budget\n"
+            "  vote-many          - Vote on a LYBERIXV3 initiative\n"
+            "  vote-alias         - Vote on a LYBERIXV3 initiative\n"
+            "  vote               - Vote on a LYBERIXV3 initiative/budget\n"
             "  getvotes           - Show current masternode budgets\n"
             "  getinfo            - Show current masternode budgets\n"
             "  show               - Show all budgets\n"
@@ -57,7 +57,7 @@ Value mnbudget(const Array& params, bool fHelp)
         CBlockIndex* pindexPrev = chainActive.Tip();
 
         if (params.size() != 7)
-            throw runtime_error("Correct usage is 'mnbudget prepare proposal-name url payment_count block_start lyberix_address monthly_payment_lyberix'");
+            throw runtime_error("Correct usage is 'mnbudget prepare proposal-name url payment_count block_start lyberixv3_address monthly_payment_lyberixv3'");
 
         std::string strProposalName = params[1].get_str();
         if (strProposalName.size() > 20)
@@ -90,9 +90,9 @@ Value mnbudget(const Array& params, bool fHelp)
 
         CBitcoinAddress address(params[5].get_str());
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LYBERIX address");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LYBERIXV3 address");
 
-        // Parse LYBERIX address
+        // Parse LYBERIXV3 address
         CScript scriptPubKey = GetScriptForDestination(address.Get());
         CAmount nAmount = AmountFromValue(params[6]);
 
@@ -130,7 +130,7 @@ Value mnbudget(const Array& params, bool fHelp)
         CBlockIndex* pindexPrev = chainActive.Tip();
 
         if (params.size() != 8)
-            throw runtime_error("Correct usage is 'mnbudget submit proposal-name url payment_count block_start lyberix_address monthly_payment_lyberix fee_tx'");
+            throw runtime_error("Correct usage is 'mnbudget submit proposal-name url payment_count block_start lyberixv3_address monthly_payment_lyberixv3 fee_tx'");
 
         // Check these inputs the same way we check the vote commands:
         // **********************************************************
@@ -166,9 +166,9 @@ Value mnbudget(const Array& params, bool fHelp)
 
         CBitcoinAddress address(params[5].get_str());
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LYBERIX address");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid LYBERIXV3 address");
 
-        // Parse LYBERIX address
+        // Parse LYBERIXV3 address
         CScript scriptPubKey = GetScriptForDestination(address.Get());
         CAmount nAmount = AmountFromValue(params[6]);
         uint256 hash = ParseHashV(params[7], "parameter 1");

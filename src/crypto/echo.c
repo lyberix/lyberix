@@ -46,7 +46,7 @@ extern "C"{
 
 /*
  * Some measures tend to show that the 64-bit implementation offers
- * blyberix performance only on a "64-bit architectures", those which have
+ * blyberixv3 performance only on a "64-bit architectures", those which have
  * actual 64-bit registers.
  */
 #if !defined SPH_ECHO_64 && SPH_64_TRUE

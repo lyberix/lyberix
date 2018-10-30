@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The LYBERIX developers
+// Copyright (c) 2018 The LYBERIXV3 developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -44,7 +44,7 @@ using namespace boost;
 using namespace std;
 
 #if defined(NDEBUG)
-#error "LYBERIX cannot be compiled without assertions."
+#error "LYBERIXV3 cannot be compiled without assertions."
 #endif
 
 /**
@@ -98,7 +98,7 @@ static void CheckBlockIndex();
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "LYBERIX Signed Message:\n";
+const string strMessageMagic = "LYBERIXV3 Signed Message:\n";
 
 // Internal stuff
 namespace
@@ -128,7 +128,7 @@ CBlockIndex* pindexBestInvalid;
 
 /**
      * The set of all CBlockIndex entries with BLOCK_VALID_TRANSACTIONS (for itself and all ancestors) and
-     * as good as our current tip or blyberix. Entries may be failed, though.
+     * as good as our current tip or blyberixv3. Entries may be failed, though.
      */
 set<CBlockIndex*, CBlockIndexWorkComparator> setBlockIndexCandidates;
 /** Number of nodes with fSyncStarted. */
@@ -423,7 +423,7 @@ void UpdateBlockAvailability(NodeId nodeid, const uint256& hash)
 
     BlockMap::iterator it = mapBlockIndex.find(hash);
     if (it != mapBlockIndex.end() && it->second->nChainWork > 0) {
-        // An actually blyberix block was announced.
+        // An actually blyberixv3 block was announced.
         if (state->pindexBestKnownBlock == NULL || it->second->nChainWork >= state->pindexBestKnownBlock->nChainWork)
             state->pindexBestKnownBlock = it->second;
     } else {
@@ -2021,7 +2021,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck()
 {
-    RenameThread("lyberix-scriptch");
+    RenameThread("lyberixv3-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2606,7 +2606,7 @@ static CBlockIndex* FindMostWorkChain()
 static void PruneBlockIndexCandidates()
 {
     // Note that we can't delete the current block itself, as we may need to return to it later in case a
-    // reorganization to a blyberix block fails.
+    // reorganization to a blyberixv3 block fails.
     std::set<CBlockIndex*, CBlockIndexWorkComparator>::iterator it = setBlockIndexCandidates.begin();
     while (it != setBlockIndexCandidates.end() && setBlockIndexCandidates.value_comp()(*it, chainActive.Tip())) {
         setBlockIndexCandidates.erase(it++);
@@ -2667,7 +2667,7 @@ static bool ActivateBestChainStep(CValidationState& state, CBlockIndex* pindexMo
             } else {
                 PruneBlockIndexCandidates();
                 if (!pindexOldTip || chainActive.Tip()->nChainWork > pindexOldTip->nChainWork) {
-                    // We're in a blyberix position than we were. Return temporarily to release the lock.
+                    // We're in a blyberixv3 position than we were. Return temporarily to release the lock.
                     fContinue = false;
                     break;
                 }
@@ -3334,7 +3334,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         return false;
 
     if (pindex->nStatus & BLOCK_HAVE_DATA) {
-        // TODO: deal blyberix with duplicate blocks.
+        // TODO: deal blyberixv3 with duplicate blocks.
         // return state.DoS(20, error("AcceptBlock() : already have block %d %s", pindex->nHeight, pindex->GetBlockHash().ToString()), REJECT_DUPLICATE, "duplicate");
         return true;
     }
@@ -3408,7 +3408,7 @@ CBlockIndex* CBlockIndex::GetAncestor(int height)
         int heightSkipPrev = GetSkipHeight(heightWalk - 1);
         if (heightSkip == height ||
             (heightSkip > height && !(heightSkipPrev < heightSkip - 2 && heightSkipPrev >= height))) {
-            // Only follow pskip if pprev->pskip isn't blyberix than pskip->pprev.
+            // Only follow pskip if pprev->pskip isn't blyberixv3 than pskip->pprev.
             pindexWalk = pindexWalk->pskip;
             heightWalk = heightSkip;
         } else {

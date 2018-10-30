@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package lyberixd/lyberix-qt
-for Debian-based Linux systems. If you compile lyberixd/lyberix-qt yourself, there are some useful files here.
+This directory contains files used to package lyberixv3d/lyberixv3-qt
+for Debian-based Linux systems. If you compile lyberixv3d/lyberixv3-qt yourself, there are some useful files here.
 
-## lyberix: URI support ##
+## lyberixv3: URI support ##
 
 
-lyberix-qt.desktop  (Gnome / Open Desktop)
+lyberixv3-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install lyberix-qt.desktop
+	sudo desktop-file-install lyberixv3-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your lyberixqt binary to `/usr/bin`
-and the `../../share/pixmaps/lyberix128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your lyberixv3qt binary to `/usr/bin`
+and the `../../share/pixmaps/lyberixv3128.png` to `/usr/share/pixmaps`
 
-lyberix-qt.protocol (KDE)
+lyberixv3-qt.protocol (KDE)
 

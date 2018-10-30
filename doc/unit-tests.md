@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with 'make check'.
 
-To run the lyberixd tests manually, launch src/test/test_lyberix .
+To run the lyberixv3d tests manually, launch src/test/test_lyberixv3 .
 
-To add more lyberixd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more lyberixv3d tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the lyberix-qt tests manually, launch src/qt/test/lyberix-qt_test
+To run the lyberixv3-qt tests manually, launch src/qt/test/lyberixv3-qt_test
 
-To add more lyberix-qt tests, add them to the `src/qt/test/` directory and
+To add more lyberixv3-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

@@ -147,7 +147,7 @@ bitcoin (0.5.2-natty0) natty; urgency=low
 
   * New upstream release.
 
- -- Luke Etterjr <luke+bitcoin+deb@lyberixjr.org>  Fri, 16 Dec 2011 17:57:00 -0500
+ -- Luke Etterjr <luke+bitcoin+deb@lyberixv3jr.org>  Fri, 16 Dec 2011 17:57:00 -0500
 
 bitcoin (0.5.1-natty0) natty; urgency=low
 
@@ -365,8 +365,8 @@ bitcoin (0.3.19~dfsg-5) unstable; urgency=low
 bitcoin (0.3.19~dfsg-4) unstable; urgency=low
 
   [ Micah Anderson ]
-  * Provide example lyberix.conf.
-  * Add bitcoind(1) and lyberix.conf(5) man pages.
+  * Provide example lyberixv3.conf.
+  * Add bitcoind(1) and lyberixv3.conf(5) man pages.
 
   [ Jonas Smedegaard ]
   * Ease backporting:

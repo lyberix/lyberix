@@ -10,7 +10,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/lyberixstrings.cpp"
+OUT_CPP="qt/lyberixv3strings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -74,10 +74,10 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *lyberix_strings[] = {\n')
-messages.sort(key=operator.itemglyberix(0))
+f.write('static const char UNUSED *lyberixv3_strings[] = {\n')
+messages.sort(key=operator.itemglyberixv3(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("lyberix-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("lyberixv3-core", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

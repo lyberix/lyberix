@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/lyberixv3_bg.qm</file>
+        <file alias="de">locale/lyberixv3_de.qm</file>
+        <file alias="en">locale/lyberixv3_en.qm</file>
+        <file alias="es">locale/lyberixv3_es.qm</file>
+        <file alias="fi">locale/lyberixv3_fi.qm</file>
+        <file alias="fr">locale/lyberixv3_fr.qm</file>
+        <file alias="it">locale/lyberixv3_it.qm</file>
+        <file alias="ja">locale/lyberixv3_ja.qm</file>
+        <file alias="pl">locale/lyberixv3_pl.qm</file>
+        <file alias="pt">locale/lyberixv3_pt.qm</file>
+        <file alias="ru">locale/lyberixv3_ru.qm</file>
+        <file alias="sk">locale/lyberixv3_sk.qm</file>
+        <file alias="sv">locale/lyberixv3_sv.qm</file>
+        <file alias="vi">locale/lyberixv3_vi.qm</file>
+        <file alias="zh_CN">locale/lyberixv3_zh_CN.qm</file>
+        <file alias="zh_TW">locale/lyberixv3_zh_TW.qm</file>
+    </qresource>
+</RCC>

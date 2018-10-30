@@ -7,7 +7,7 @@
 #define BITCOIN_COMPAT_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/lyberix-config.h"
+#include "config/lyberixv3-config.h"
 #endif
 
 #ifdef WIN32

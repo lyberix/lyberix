@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers 
-// Copyright (c) 2018 The LYBERIX developers
+// Copyright (c) 2018 The LYBERIXV3 developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,18 +20,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(LYBERIX);
-    unitlist.append(mLYBERIX);
-    unitlist.append(uLYBERIX);
+    unitlist.append(LYBERIXV3);
+    unitlist.append(mLYBERIXV3);
+    unitlist.append(uLYBERIXV3);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case LYBERIX:
-    case mLYBERIX:
-    case uLYBERIX:
+    case LYBERIXV3:
+    case mLYBERIXV3:
+    case uLYBERIXV3:
         return true;
     default:
         return false;
@@ -41,12 +41,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case LYBERIX:
-        return QString("lyberix");
-    case mLYBERIX:
-        return QString("mlyberix");
-    case uLYBERIX:
-        return QString::fromUtf8("ulyberix");
+    case LYBERIXV3:
+        return QString("lyberixv3");
+    case mLYBERIXV3:
+        return QString("mlyberixv3");
+    case uLYBERIXV3:
+        return QString::fromUtf8("ulyberixv3");
     default:
         return QString("???");
     }
@@ -56,23 +56,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case LYBERIX:
-            return QString("LYBERIX");
-        case mLYBERIX:
-            return QString("mLYBERIX");
-        case uLYBERIX:
-            return QString::fromUtf8("μLYBERIX");
+        case LYBERIXV3:
+            return QString("LYBERIXV3");
+        case mLYBERIXV3:
+            return QString("mLYBERIXV3");
+        case uLYBERIXV3:
+            return QString::fromUtf8("μLYBERIXV3");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case LYBERIX:
-            return QString("tLYBERIX");
-        case mLYBERIX:
-            return QString("mtLYBERIX");
-        case uLYBERIX:
-            return QString::fromUtf8("μtLYBERIX");
+        case LYBERIXV3:
+            return QString("tLYBERIXV3");
+        case mLYBERIXV3:
+            return QString("mtLYBERIXV3");
+        case uLYBERIXV3:
+            return QString::fromUtf8("μtLYBERIXV3");
         default:
             return QString("???");
         }
@@ -83,23 +83,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case LYBERIX:
-            return QString("LYBERIX");
-        case mLYBERIX:
-            return QString("Milli-LYBERIX (1 / 1" THIN_SP_UTF8 "000)");
-        case uLYBERIX:
-            return QString("Micro-LYBERIX (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case LYBERIXV3:
+            return QString("LYBERIXV3");
+        case mLYBERIXV3:
+            return QString("Milli-LYBERIXV3 (1 / 1" THIN_SP_UTF8 "000)");
+        case uLYBERIXV3:
+            return QString("Micro-LYBERIXV3 (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case LYBERIX:
-            return QString("TestLYBERIXs");
-        case mLYBERIX:
-            return QString("Milli-TestLYBERIX (1 / 1" THIN_SP_UTF8 "000)");
-        case uLYBERIX:
-            return QString("Micro-TestLYBERIX (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case LYBERIXV3:
+            return QString("TestLYBERIXV3s");
+        case mLYBERIXV3:
+            return QString("Milli-TestLYBERIXV3 (1 / 1" THIN_SP_UTF8 "000)");
+        case uLYBERIXV3:
+            return QString("Micro-TestLYBERIXV3 (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -109,11 +109,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case LYBERIX:
+    case LYBERIXV3:
         return 100000000;
-    case mLYBERIX:
+    case mLYBERIXV3:
         return 100000;
-    case uLYBERIX:
+    case uLYBERIXV3:
         return 100;
     default:
         return 100000000;
@@ -123,11 +123,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case LYBERIX:
+    case LYBERIXV3:
         return 8;
-    case mLYBERIX:
+    case mLYBERIXV3:
         return 5;
-    case uLYBERIX:
+    case uLYBERIXV3:
         return 2;
     default:
         return 0;

@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += lyberixd
+  bin_PROGRAMS += lyberixv3d
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += lyberix-cli lyberix-tx
+  bin_PROGRAMS += lyberixv3-cli lyberixv3-tx
 endif
 
 .PHONY: FORCE
-# lyberix core #
+# lyberixv3 core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -178,7 +178,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between lyberixd and lyberix-qt
+# server: shared between lyberixv3d and lyberixv3-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(BOOST_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -222,7 +222,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between lyberixd and lyberix-qt, but only linked
+# wallet: shared between lyberixv3d and lyberixv3-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -305,7 +305,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between lyberixd, and lyberix-qt and non-server tools
+# common: shared between lyberixv3d, and lyberixv3-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -361,7 +361,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between lyberix-cli and lyberix-qt
+# cli: shared between lyberixv3-cli and lyberixv3-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -371,7 +371,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-lyberixd_LDADD = \
+lyberixv3d_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -382,40 +382,40 @@ lyberixd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-lyberixd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+lyberixv3d_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-lyberixd_LDADD += libbitcoin_wallet.a
+lyberixv3d_LDADD += libbitcoin_wallet.a
 endif
-lyberixd_SOURCES = lyberixd.cpp
+lyberixv3d_SOURCES = lyberixv3d.cpp
 #
 
 if TARGET_WINDOWS
-lyberixd_SOURCES += lyberixd-res.rc
+lyberixv3d_SOURCES += lyberixv3d-res.rc
 endif
 
-lyberixd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-lyberixd_CPPFLAGS = $(BITCOIN_INCLUDES)
-lyberixd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+lyberixv3d_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+lyberixv3d_CPPFLAGS = $(BITCOIN_INCLUDES)
+lyberixv3d_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# lyberix-cli binary #
-lyberix_cli_LDADD = \
+# lyberixv3-cli binary #
+lyberixv3_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-lyberix_cli_SOURCES = \
-  lyberix-cli.cpp
+lyberixv3_cli_SOURCES = \
+  lyberixv3-cli.cpp
 
-lyberix_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+lyberixv3_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# lyberix-tx binary #
-lyberix_tx_LDADD = \
+# lyberixv3-tx binary #
+lyberixv3_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -424,15 +424,15 @@ lyberix_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-lyberix_tx_SOURCES = lyberix-tx.cpp
-lyberix_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+lyberixv3_tx_SOURCES = lyberixv3-tx.cpp
+lyberixv3_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-lyberix_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+lyberixv3_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lyberix_cli_SOURCES += lyberix-cli-res.rc
+lyberixv3_cli_SOURCES += lyberixv3-cli-res.rc
 endif
-lyberix_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+lyberixv3_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

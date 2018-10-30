@@ -380,7 +380,7 @@
 ["NOP", "NOP 1", "P2SH,STRICTENC", "The following tests check the if(stack.size() < N) tests in each opcode"],
 ["1", "IF 1 ENDIF", "P2SH,STRICTENC", "They are here to catch copy-and-paste errors"],
 ["0", "NOTIF 1 ENDIF", "P2SH,STRICTENC", "Most of them are duplicated elsewhere,"],
-["1", "VERIFY 1", "P2SH,STRICTENC", "but, hey, more is always blyberix, right?"],
+["1", "VERIFY 1", "P2SH,STRICTENC", "but, hey, more is always blyberixv3, right?"],
 
 ["0", "TOALTSTACK 1", "P2SH,STRICTENC"],
 ["1", "TOALTSTACK FROMALTSTACK", "P2SH,STRICTENC"],

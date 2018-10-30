@@ -1,5 +1,5 @@
 ---
-name: "lyberix-dmg-signer"
+name: "lyberixv3-dmg-signer"
 suites:
 - "trusty"
 architectures:
@@ -7,10 +7,10 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/LYBERIXCRYPTO/LYBERIX.SIGS.git"
+- "url": "https://github.com/LYBERIXV3CRYPTO/LYBERIXV3.SIGS.git"
   "dir": "signature"
 files:
-- "lyberix-osx-unsigned.tar.gz"
+- "lyberixv3-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -27,11 +27,11 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=lyberix-osx-unsigned.tar.gz
-  SIGNED=lyberix-osx-signed.dmg
+  UNSIGNED=lyberixv3-osx-unsigned.tar.gz
+  SIGNED=lyberixv3-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"
   ./detached-sig-apply.sh ${UNSIGNED} signature/osx
-  ${WRAP_DIR}/genisoimage -no-cache-inodes -D -l -probe -V "LYBERIX-Qt" -no-pad -r -dir-mode 0755 -apple -o uncompressed.dmg signed-app
+  ${WRAP_DIR}/genisoimage -no-cache-inodes -D -l -probe -V "LYBERIXV3-Qt" -no-pad -r -dir-mode 0755 -apple -o uncompressed.dmg signed-app
   ${WRAP_DIR}/dmg dmg uncompressed.dmg ${OUTDIR}/${SIGNED}

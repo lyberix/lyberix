@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both lyberixd and lyberix-qt, to make it harder for attackers to
+ * for both lyberixv3d and lyberixv3-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("LYBERIX Core");
+const std::string CLIENT_NAME("LYBERIXV3 Core");
 
 /**
  * Client version number

@@ -14,7 +14,7 @@
 /* optimal for 128-bit and 256-bit exponents. */
 #define WINDOW_A 5
 
-/** larger numbers may result in slightly blyberix performance, at the cost of
+/** larger numbers may result in slightly blyberixv3 performance, at the cost of
     exponentially larger precomputed tables. WINDOW_G == 14 results in 640 KiB. */
 #ifdef USE_ENDOMORPHISM
 #define WINDOW_G 14

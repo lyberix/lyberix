@@ -568,7 +568,7 @@ typedef __arch_dependant__ sph_s64;
 /**
  * Byte-swap a 32-bit word (i.e. <code>0x12345678</code> becomes
  * <code>0x78563412</code>). This is an inline function which resorts
- * to inline assembly on some platforms, for blyberix performance.
+ * to inline assembly on some platforms, for blyberixv3 performance.
  *
  * @param x   the 32-bit value to byte-swap
  * @return  the byte-swapped value
@@ -577,7 +577,7 @@ static inline sph_u32 sph_bswap32(sph_u32 x);
 
 /**
  * Byte-swap a 64-bit word. This is an inline function which resorts
- * to inline assembly on some platforms, for blyberix performance. This
+ * to inline assembly on some platforms, for blyberixv3 performance. This
  * function is defined only if a suitable 64-bit type was found for
  * <code>sph_u64</code>
  *
@@ -1303,7 +1303,7 @@ sph_bswap64(sph_u64 x)
  * the opcode "lda [%reg]0x88,%dst", where %reg is the register which
  * contains the source address and %dst is the destination register,
  * or we use "lda [%reg+imm]%asi,%dst", which uses the %asi register
- * to get the address space name. The latter format is blyberix since it
+ * to get the address space name. The latter format is blyberixv3 since it
  * combines an addition and the actual access in a single opcode; but
  * it requires the setting (and subsequent resetting) of %asi, which is
  * slow. Some operations (i.e. MD5 compression function) combine many

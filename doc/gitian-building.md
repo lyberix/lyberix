@@ -1,9 +1,9 @@
 Gitian building
 ================
 
-*Setup instructions for a gitian build of LYBERIX using a Debian VM or physical system.*
+*Setup instructions for a gitian build of LYBERIXV3 using a Debian VM or physical system.*
 
-Gitian is the deterministic build process that is used to build the LYBERIX
+Gitian is the deterministic build process that is used to build the LYBERIXV3
 Core executables. It provides a way to be reasonably sure that the
 executables are really built from source on GitHub. It also makes sure that
 the same, tested dependencies are used and statically built into the executable.
@@ -11,7 +11,7 @@ the same, tested dependencies are used and statically built into the executable.
 Multiple developers build the source code by following a specific descriptor
 ("recipe"), cryptographically sign the result, and upload the resulting signature.
 These results are compared and only if they match, the build is accepted and uploaded
-to lyberix-crypto.com.
+to lyberixv3-crypto.com.
 
 More independent gitian builders are needed, which is why I wrote this
 guide. It is preferred to follow these steps yourself instead of using someone else's
@@ -26,7 +26,7 @@ Table of Contents
 - [Installing gitian](#installing-gitian)
 - [Setting up gitian images](#setting-up-gitian-images)
 - [Getting and building the inputs](#getting-and-building-the-inputs)
-- [Building LYBERIX](#building-lyberix)
+- [Building LYBERIXV3](#building-lyberixv3)
 - [Building an alternative repository](#building-an-alternative-repository)
 - [Signing externally](#signing-externally)
 - [Uploading signatures](#uploading-signatures)
@@ -71,7 +71,7 @@ In the VirtualBox GUI click "Create" and choose the following parameters in the 
     
 ![](gitian-building/create_vm_file_location_size.png)
 
-- Disk size: at least 40GB; as low as 20GB *may* be possible, but blyberix to err on the safe side 
+- Disk size: at least 40GB; as low as 20GB *may* be possible, but blyberixv3 to err on the safe side 
 - Push the `Create` button
 
 Get the [Debian 7.8 net installer](http://cdimage.debian.org/cdimage/archive/7.8.0/amd64/iso-cd/debian-7.8.0-amd64-netinst.iso) (a more recent minor version should also work, see also [Debian Network installation](https://www.debian.org/CD/netinst/)).
@@ -277,12 +277,12 @@ cd ..
 
 **Note**: When sudo asks for a password, enter the password for the user *debian* not for *root*.
 
-Clone the git repositories for lyberix and gitian and then checkout the lyberix version that you want to build.
+Clone the git repositories for lyberixv3 and gitian and then checkout the lyberixv3 version that you want to build.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/LYBERIXCRYPTO/LYBERIX.git
-cd lyberix
+git clone https://github.com/LYBERIXV3CRYPTO/LYBERIXV3.git
+cd lyberixv3
 git checkout v${VERSION}
 cd ..
 ```
@@ -321,16 +321,16 @@ There will be a lot of warnings printed during build of the images. These can be
 Getting and building the inputs
 --------------------------------
 
-Follow the instructions in [doc/release-process.md](release-process.md) in the lyberix repository
+Follow the instructions in [doc/release-process.md](release-process.md) in the lyberixv3 repository
 under 'Fetch and build inputs' to install sources which require manual intervention. Also follow
 the next step: 'Seed the Gitian sources cache', which will fetch all necessary source files allowing
 for gitian to work offline.
 
-Building LYBERIX
+Building LYBERIXV3
 ----------------
 
-To build LYBERIX (for Linux, OSX and Windows) just follow the steps under 'perform
-gitian builds' in [doc/release-process.md](release-process.md) in the lyberix repository.
+To build LYBERIXV3 (for Linux, OSX and Windows) just follow the steps under 'perform
+gitian builds' in [doc/release-process.md](release-process.md) in the lyberixv3 repository.
 
 This may take a long time as it also builds the dependencies needed for each descriptor.
 These dependencies will be cached after a successful build to avoid rebuilding them when possible.
@@ -345,12 +345,12 @@ tail -f var/build.log
 Output from `gbuild` will look something like
 
 ```bash
-    Initialized empty Git repository in /home/debian/gitian-builder/inputs/lyberix/.git/
+    Initialized empty Git repository in /home/debian/gitian-builder/inputs/lyberixv3/.git/
     remote: Reusing existing pack: 35606, done.
     remote: Total 35606 (delta 0), reused 0 (delta 0)
     Receiving objects: 100% (35606/35606), 26.52 MiB | 4.28 MiB/s, done.
     Resolving deltas: 100% (25724/25724), done.
-    From https://github.com/LYBERIXCRYPTO/LYBERIX
+    From https://github.com/LYBERIXV3CRYPTO/LYBERIXV3
     ... (new tags, new branch etc)
     --- Building for precise x86_64 ---
     Stopping target if it is up
@@ -377,11 +377,11 @@ and inputs.
 
 For example:
 ```bash
-URL=https://github.com/LYBERIXCRYPTO/LYBERIX
+URL=https://github.com/LYBERIXV3CRYPTO/LYBERIXV3
 COMMIT=b616fb8ef0d49a919b72b0388b091aaec5849b96
-./bin/gbuild --commit lyberix=${COMMIT} --url lyberix=${URL} ../lyberix/contrib/gitian-descriptors/gitian-linux.yml
-./bin/gbuild --commit lyberix=${COMMIT} --url lyberix=${URL} ../lyberix/contrib/gitian-descriptors/gitian-win.yml
-./bin/gbuild --commit lyberix=${COMMIT} --url lyberix=${URL} ../lyberix/contrib/gitian-descriptors/gitian-osx.yml
+./bin/gbuild --commit lyberixv3=${COMMIT} --url lyberixv3=${URL} ../lyberixv3/contrib/gitian-descriptors/gitian-linux.yml
+./bin/gbuild --commit lyberixv3=${COMMIT} --url lyberixv3=${URL} ../lyberixv3/contrib/gitian-descriptors/gitian-win.yml
+./bin/gbuild --commit lyberixv3=${COMMIT} --url lyberixv3=${URL} ../lyberixv3/contrib/gitian-descriptors/gitian-osx.yml
 ```
 
 Signing externally
@@ -396,9 +396,9 @@ When you execute `gsign` you will get an error from GPG, which can be ignored. C
 in `gitian.sigs` to your signing machine and do
 
 ```bash
-    gpg --detach-sign ${VERSION}-linux/${SIGNER}/lyberix-build.assert
-    gpg --detach-sign ${VERSION}-win/${SIGNER}/lyberix-build.assert
-    gpg --detach-sign ${VERSION}-osx/${SIGNER}/lyberix-build.assert
+    gpg --detach-sign ${VERSION}-linux/${SIGNER}/lyberixv3-build.assert
+    gpg --detach-sign ${VERSION}-win/${SIGNER}/lyberixv3-build.assert
+    gpg --detach-sign ${VERSION}-osx/${SIGNER}/lyberixv3-build.assert
 ```
 
 This will create the `.sig` files that can be committed together with the `.assert` files to assert your
@@ -408,6 +408,6 @@ Uploading signatures (not yet implemented)
 ---------------------
 
 In the future it will be possible to push your signatures (both the `.assert` and `.assert.sig` files) to the
-[lyberix/gitian.sigs](https://github.com/lyberix-crypto/gitian.sigs/) repository, or if that's not possible to create a pull
+[lyberixv3/gitian.sigs](https://github.com/lyberixv3-crypto/gitian.sigs/) repository, or if that's not possible to create a pull
 request.
 There will be an official announcement when this repository is online.

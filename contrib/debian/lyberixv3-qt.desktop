@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=LYBERIXV3
+Comment=LYBERIXV3 P2P Cryptocurrency
+Comment[fr]=LYBERIXV3, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=LYBERIXV3, eşten eşe kriptografik sanal para birimi
+Exec=lyberixv3-qt %u
+Terminal=false
+Type=Application
+Icon=lyberixv3128
+MimeType=x-scheme-handler/lyberixv3;
+Categories=Office;Finance;

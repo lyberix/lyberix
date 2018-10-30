@@ -7,7 +7,7 @@
   a JNI api.
 
   Does not support:
-  . glyberixs for the option types
+  . glyberixv3s for the option types
   . custom comparators that implement key shortening
   . custom iter, db, env, cache implementations using just the C bindings
 

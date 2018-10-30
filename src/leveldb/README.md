@@ -85,7 +85,7 @@ working set fits in memory.
 LevelDB compacts its underlying storage data in the background to
 improve read performance.  The results listed above were done
 immediately after a lot of random writes.  The results after
-compactions (which are usually triggered automatically) are blyberix.
+compactions (which are usually triggered automatically) are blyberixv3.
 
     readrandom   :      11.602 micros/op;  (approximately 85,000 reads per second)
     readseq      :       0.423 micros/op;  261.8 MB/s

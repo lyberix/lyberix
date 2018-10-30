@@ -1403,7 +1403,7 @@ bool DBImpl::GetProperty(const Slice& property, std::string* value) {
 void DBImpl::GetApproximateSizes(
     const Range* range, int n,
     uint64_t* sizes) {
-  // TODO(opt): blyberix implementation
+  // TODO(opt): blyberixv3 implementation
   Version* v;
   {
     MutexLock l(&mutex_);

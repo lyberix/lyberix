@@ -1,4 +1,4 @@
-Building LYBERIX
+Building LYBERIXV3
 
 Use the autogen script to prepare the build environment.
 
@@ -8,6 +8,6 @@ Use the autogen script to prepare the build environment.
 
 Always verify the signatures and checksums.
 
-See doc/build-*.md for instructions on building lyberixd,
+See doc/build-*.md for instructions on building lyberixv3d,
 the intended-for-services, no-graphical-interface, reference
-implementation of LYBERIX.
+implementation of LYBERIXV3.

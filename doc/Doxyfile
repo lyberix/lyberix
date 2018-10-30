@@ -28,7 +28,7 @@ DOXYFILE_ENCODING      = UTF-8
 # The PROJECT_NAME tag is a single word (or a sequence of words surrounded
 # by quotes) that should identify the project.
 
-PROJECT_NAME           = LYBERIX
+PROJECT_NAME           = LYBERIXV3
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number.
 # This could be handy for archiving the generated documentation or
@@ -265,8 +265,8 @@ CPP_CLI_SUPPORT        = NO
 
 SIP_SUPPORT            = NO
 
-# For Microsoft's IDL there are propget and propput attributes to indicate glyberix
-# and slyberix methods for a property. Setting this option to YES (the default)
+# For Microsoft's IDL there are propget and propput attributes to indicate glyberixv3
+# and slyberixv3 methods for a property. Setting this option to YES (the default)
 # will make doxygen replace the get and set methods by a property in the
 # documentation. This will only work if the methods are indeed getting or
 # setting a simple type. If this is not the case, or you want to show the
@@ -401,7 +401,7 @@ HIDE_IN_BODY_DOCS      = NO
 INTERNAL_DOCS          = NO
 
 # If the CASE_SENSE_NAMES tag is set to NO then Doxygen will only generate
-# file names in lower-case llyberixs. If set to YES upper-case llyberixs are also
+# file names in lower-case llyberixv3s. If set to YES upper-case llyberixv3s are also
 # allowed. This is useful if you have classes or files whose names only differ
 # in case and if your file system supports case sensitive file names. Windows
 # and Mac users are advised to set this option to NO.
@@ -1117,7 +1117,7 @@ ENUM_VALUES_PER_LINE   = 4
 # containing a tree-like index structure (just like the one that
 # is generated for HTML Help). For this to work a browser that supports
 # JavaScript, DHTML, CSS and frames is required (i.e. any modern browser).
-# Windows users are probably blyberix off using the HTML help feature.
+# Windows users are probably blyberixv3 off using the HTML help feature.
 
 GENERATE_TREEVIEW      = NO
 
@@ -1179,7 +1179,7 @@ MATHJAX_RELPATH        = http://www.mathjax.org/mathjax
 # HTML help (GENERATE_HTMLHELP), Qt help (GENERATE_QHP), or docsets
 # (GENERATE_DOCSET) there is already a search function so this one should
 # typically be disabled. For large projects the javascript based search engine
-# can be slow, then enabling SERVER_BASED_SEARCH may provide a blyberix solution.
+# can be slow, then enabling SERVER_BASED_SEARCH may provide a blyberixv3 solution.
 
 SEARCHENGINE           = YES
 
@@ -1187,7 +1187,7 @@ SEARCHENGINE           = YES
 # implemented using a PHP enabled web server instead of at the web client
 # using Javascript. Doxygen will generate the search PHP script and index
 # file to put on the web server. The advantage of the server
-# based approach is that it scales blyberix to large projects and allows
+# based approach is that it scales blyberixv3 to large projects and allows
 # full text search. The disadvantages are that it is more difficult to setup
 # and does not have live searching capabilities.
 
@@ -1229,7 +1229,7 @@ MAKEINDEX_CMD_NAME     = makeindex
 COMPACT_LATEX          = NO
 
 # The PAPER_TYPE tag can be used to set the paper type that is used
-# by the printer. Possible values are: a4, llyberix, legal and
+# by the printer. Possible values are: a4, llyberixv3, legal and
 # executive. If left blank a4wide will be used.
 
 PAPER_TYPE             = a4
@@ -1656,7 +1656,7 @@ INCLUDED_BY_GRAPH      = YES
 # If the CALL_GRAPH and HAVE_DOT options are set to YES then
 # doxygen will generate a call dependency graph for every global function
 # or class method. Note that enabling this option will significantly increase
-# the time of a run. So in most cases it will be blyberix to enable call graphs
+# the time of a run. So in most cases it will be blyberixv3 to enable call graphs
 # for selected functions only using the \callgraph command.
 
 CALL_GRAPH             = YES
@@ -1664,7 +1664,7 @@ CALL_GRAPH             = YES
 # If the CALLER_GRAPH and HAVE_DOT tags are set to YES then
 # doxygen will generate a caller dependency graph for every global function
 # or class method. Note that enabling this option will significantly increase
-# the time of a run. So in most cases it will be blyberix to enable caller
+# the time of a run. So in most cases it will be blyberixv3 to enable caller
 # graphs for selected functions only using the \callergraph command.
 
 CALLER_GRAPH           = YES

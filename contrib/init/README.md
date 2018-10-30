@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: lyberixd.service
-Upstart: lyberixd.conf
-OpenRC:  lyberixd.openrc
-         lyberixd.openrcconf
-CentOS:  lyberixd.init
+SystemD: lyberixv3d.service
+Upstart: lyberixv3d.conf
+OpenRC:  lyberixv3d.openrc
+         lyberixv3d.openrcconf
+CentOS:  lyberixv3d.init
 
 have been made available to assist packagers in creating node packages here.
 

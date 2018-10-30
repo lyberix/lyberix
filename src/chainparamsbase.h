@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between lyberix-cli and lyberixd)
- * of a given instance of the LYBERIX system.
+ * CBaseChainParams defines the base parameters (shared between lyberixv3-cli and lyberixv3d)
+ * of a given instance of the LYBERIXV3 system.
  */
 class CBaseChainParams
 {
